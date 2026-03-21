@@ -693,34 +693,34 @@ if [ -f /etc/os-release ]; then
     case "$OS_ID" in
         ubuntu)
             sudo apt-get update -qq
-            sudo apt-get install -y -qq pciutils iw inxi lm-sensors bc || { echo "${BOLD}Package installation failed on Ubuntu.${RESET}"; exit 1; }
+            sudo apt-get install -y -qq pciutils iw inxi lm-sensors bc || { echo -e "${BOLD}Package installation failed on Ubuntu.${RESET}"; exit 1; }
             ;;
         debian)
             sudo apt-get update -qq
-            sudo apt-get install -y -qq pciutils iw inxi lm-sensors bc || { echo "${BOLD}Package installation failed on Debian.${RESET}"; exit 1; }
+            sudo apt-get install -y -qq pciutils iw inxi lm-sensors bc || { echo -e "${BOLD}Package installation failed on Debian.${RESET}"; exit 1; }
             ;;
         linuxmint)
             sudo apt-get update -qq
-            sudo apt-get install -y -qq pciutils iw inxi lm-sensors bc || { echo "${BOLD}Package installation failed on Linux Mint.${RESET}"; exit 1; }
+            sudo apt-get install -y -qq pciutils iw inxi lm-sensors bc || { echo -e "${BOLD}Package installation failed on Linux Mint.${RESET}"; exit 1; }
             ;;
         pop)
             sudo apt-get update -qq
-            sudo apt-get install -y -qq pciutils iw inxi lm-sensors || { echo "${BOLD}Package installation failed on Pop!_OS.${RESET}"; exit 1; }
+            sudo apt-get install -y -qq pciutils iw inxi lm-sensors || { echo -e "${BOLD}Package installation failed on Pop!_OS.${RESET}"; exit 1; }
             ;;
         fedora)
-            sudo dnf install -y -q pciutils iw inxi lm_sensors || { echo "${BOLD}Package installation failed on Fedora.${RESET}"; exit 1; }
+            sudo dnf install -y -q pciutils iw inxi lm_sensors || { echo -e "${BOLD}Package installation failed on Fedora.${RESET}"; exit 1; }
             ;;
         arch)
-            sudo pacman -Sy --needed --noconfirm pciutils iw inxi lm_sensors || { echo "${BOLD}Package installation failed on Arch Linux.${RESET}"; exit 1; }
+            sudo pacman -Sy --needed --noconfirm pciutils iw inxi lm_sensors || { echo -e "${BOLD}Package installation failed on Arch Linux.${RESET}"; exit 1; }
             ;;
         manjaro)
-            sudo pacman -Sy --needed --noconfirm pciutils iw inxi lm_sensors || { echo "${BOLD}Package installation failed on Manjaro.${RESET}"; exit 1; }
+            sudo pacman -Sy --needed --noconfirm pciutils iw inxi lm_sensors || { echo -e "${BOLD}Package installation failed on Manjaro.${RESET}"; exit 1; }
             ;;
         endeavouros)
-            sudo pacman -Sy --needed --noconfirm pciutils iw inxi lm_sensors || { echo "${BOLD}Package installation failed on EndeavourOS.${RESET}"; exit 1; }
+            sudo pacman -Sy --needed --noconfirm pciutils iw inxi lm_sensors || { echo -e "${BOLD}Package installation failed on EndeavourOS.${RESET}"; exit 1; }
             ;;
         opensuse-tumbleweed|opensuse-leap|opensuse)
-            sudo zypper install -y pciutils iw inxi sensors || { echo "${BOLD}Package installation failed on openSUSE.${RESET}"; exit 1; }
+            sudo zypper install -y pciutils iw inxi sensors || { echo -e "${BOLD}Package installation failed on openSUSE.${RESET}"; exit 1; }
             ;;
         nixos)
     # NixOS uses declarative package management - check if tools are available
@@ -733,7 +733,7 @@ if [ -f /etc/os-release ]; then
     command -v sensors >/dev/null || missing_tools+=("lm_sensors")
     
     if [ ${#missing_tools[@]} -gt 0 ]; then
-        echo "${BOLD}${YELLOW}Missing tools on NixOS: ${missing_tools[*]}${RESET}"
+        echo -e "${BOLD}${YELLOW}Missing tools on NixOS: ${missing_tools[*]}${RESET}"
         echo "Add these packages to your configuration.nix:"
         echo "environment.systemPackages = with pkgs; ["
         for tool in "${missing_tools[@]}"; do
@@ -750,13 +750,13 @@ if [ -f /etc/os-release ]; then
             # Just skip installation.
             ;;
         *)
-            echo "${BOLD}Unsupported distribution: $OS_ID${RESET}"
+            echo -e "${BOLD}Unsupported distribution: $OS_ID${RESET}"
             echo "Supported distributions: Ubuntu, Debian, Linux Mint, Pop!_OS, Fedora, Arch Linux, Manjaro, EndeavourOS, openSUSE, NixOS"
             exit 1
             ;;
     esac
 else
-    echo "${BOLD}Could not detect the OS distribution.${RESET}"
+    echo -e "${BOLD}Could not detect the OS distribution.${RESET}"
     exit 1
 fi
 
