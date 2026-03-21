@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 output_file="$(pwd)/combined_log.txt"  # Using current directory for input file
 filtered_output_file="$(pwd)/filtered_log.txt"  # Using current directory for output file
