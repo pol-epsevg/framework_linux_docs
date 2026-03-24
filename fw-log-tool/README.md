@@ -66,6 +66,8 @@ Output lands in `diagnostic_output.txt` (or `.json` with `--json`).
 
 ## Distro Support
 
+The supported distro versions listed here reflect the current compatibility matrix and will be updated as new releases come out. The tool itself works on beta, pre-release, and development versions of these distros — data collection doesn't depend on a specific release version.
+
 **Officially supported** (per [frame.work/linux](https://frame.work/linux)):
 - Fedora 43
 - Ubuntu (version depends on model — 25.10 for newest hardware, 24.04+ or 22.04 for older models)
