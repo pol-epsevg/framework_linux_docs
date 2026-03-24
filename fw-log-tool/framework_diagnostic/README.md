@@ -8,7 +8,7 @@ Source modules for `fw_diag.pyz`. This is what's inside the zip.
 |---|---|
 | `__main__.py` | Entry point — argparse, interactive menu, report assembly, JSON output |
 | `hardware.py` | GPU, NVMe, WiFi, RAM, expansion cards, webcam, mic, displays, RF kill, battery, disk health (nvme-cli + smartctl) |
-| `firmware.py` | fwupd devices, BIOS/EC versions, Secure Boot (mokutil → EFI var → bootctl), Thunderbolt FW, fingerprint reader, kernel cmdline, `framework_tool --versions` / `--pd-info` |
+| `firmware.py` | fwupd devices, BIOS/EC versions, Secure Boot (mokutil - EFI var - bootctl), Thunderbolt FW, fingerprint reader, kernel cmdline, `framework_tool --versions` / `--pd-info` |
 | `system_info.py` | Kernel version, distro, desktop environment, session type (Wayland/X11), power management daemon (ppd/tuned/TLP), active profile, conflict detection |
 | `thermal.py` | CPU/GPU/NVMe temps via `sensors`, AMD/Intel-specific thresholds |
 | `network.py` | Internet/WiFi/ethernet connectivity, IP addresses, DNS, VPN detection, WiFi power save |
