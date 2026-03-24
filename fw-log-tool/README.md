@@ -5,8 +5,21 @@ Collects hardware facts and system state from Framework laptops and desktops run
 > ** Your diagnostic report contains sensitive system data** — IP addresses, WiFi network names, VPN connections, DNS servers, kernel boot parameters, and full system logs. **Review the output before sharing it publicly** (e.g. forum posts, GitHub issues). Redact anything you're not comfortable posting.
 
 > ** This tool auto-installs missing dependencies** — packages like `lspci`, `dmidecode`, and `lm-sensors` are installed via your distro's package manager (`apt`, `dnf`, `pacman`, `zypper`) **without prompting**. Dependencies come from your distro's official repositories. If [`framework_tool`](https://github.com/FrameworkComputer/framework-system) is not found locally, it is downloaded from GitHub and run as root, then deleted. On immutable distros (Bluefin, Bazzite, etc.) package installation is skipped because the package manager can't be used directly — if tools are missing, results may be incomplete.
+>
 
-## Quick Start
+## Log Gathering Tool not working **or** prefer a manual approach instead?
+
+Paste this single-line command instead, then press Enter:
+
+```echo "Saving logs to logs_24h.txt..."; (echo "== DMESG for Last 24 Hours =="; sudo journalctl -k --since="24 hours ago"; echo "== JOURNALCTL for Last 24 Hours =="; sudo journalctl --since="24 hours ago") > logs_24h.txt```
+
+A file named logs_24h.txt will appear in your current directory. Attach that file in your reply to support.
+
+-----------------------------------
+-----------------------------------
+-----------------------------------
+
+## Log Gathering Tool Quick Start
 
 ```bash
 curl -sO https://raw.githubusercontent.com/FrameworkComputer/linux-docs/main/fw-log-tool/fw_diag.pyz && chmod +x fw_diag.pyz
