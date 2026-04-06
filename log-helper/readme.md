@@ -1,5 +1,47 @@
 ### This has been retired in favor of [this new tool](https://github.com/FrameworkComputer/linux-docs/tree/main/fw-log-tool).
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Framework Enhanced Diagnostic Tool aka "combined.sh"
 
 This intelligent diagnostic script collects and analyzes system logs from your Framework laptop, automatically detecting hardware issues and providing actionable recommendations in plain English. It's specifically designed for Framework laptops with model-aware analysis and Framework-specific troubleshooting guidance.
