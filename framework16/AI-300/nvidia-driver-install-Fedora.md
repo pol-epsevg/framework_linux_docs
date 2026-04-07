@@ -159,5 +159,4 @@ Continue with [Gaming on Steam](https://github.com/FrameworkComputer/linux-docs/
 >
 > A: It's ready, migrating from a hidden repo soon. Works flawlessly. Coming soon! RPM installed _compatible_ software, _compatible_ Flatpaks and even wrapper handling for _compatible_ AppImages. Do note however, GPU video rendering is done with the driver (using NVENC) and for this type of function, this application would **not** be needed.
 
-**Coming soon!**
-![COMING SOON - NVIDIA GPU Manager application interface showing GPU acceleration controls](https://raw.githubusercontent.com/FrameworkComputer/linux-docs/refs/heads/main/framework16/AI-300/images/NVIDIA-GPU-Manager.png)
+
