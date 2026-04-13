@@ -73,3 +73,52 @@ sudo dnf install gnome-tweaks -y
 &nbsp;
 &nbsp;
 &nbsp;
+
+--------------------------------
+
+### Tablet mode Fedora 44 Bug Workaround
+
+If tablet mode is not rotating when fully folded back, **verify** that [this is the cause first](https://github.com/FrameworkComputer/linux-docs/blob/main/framework12/debugging.md#check-that-the-kernel-recognized-the-tabletmode-gpio). 
+If journalctl -k | grep gpio-keys comes back empty, then we can implement a systemd service to provide a workaround until this is reoslved.
+
+Using your prefered text editor:
+Create the file `/etc/systemd/system/reload-soc-button-array.service`
+
+In that file, paste in:
+
+```
+[Unit]
+Description=Reload soc_button_array module
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/modprobe -r soc_button_array
+ExecStart=/usr/sbin/modprobe soc_button_array
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Now let's activate it.
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable reload-soc-button-array.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable reload-soc-button-array.service
+
+sudo systemctl start reload-soc-button-array.service
+```
+
+Later when we're ready to remove this service after a fix is released.
+
+```
+sudo systemctl stop reload-soc-button-array.service
+sudo systemctl disable reload-soc-button-array.service
+sudo rm /etc/systemd/system/reload-soc-button-array.service
+sudo systemctl daemon-reload
+```
+
+
