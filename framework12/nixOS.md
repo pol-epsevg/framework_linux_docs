@@ -63,3 +63,5 @@ services.udev.extraRules = ''
   ACTION=="add|change", ENV{ID_INPUT_TOUCHSCREEN}=="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
 '';
 ```
+
+This breaks auto-rotate using iio. A work-around for Gnome is to use `gnomeExtensions.screen-rotate`
